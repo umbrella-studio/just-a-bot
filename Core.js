@@ -2518,7 +2518,8 @@ ${themeemoji} MessageType : ${m.mtype}`;
                 if(argument == "") {
                     replay(`contoh pengunaan .samp info 52.139.173.53:7777`)
                 } else {
-                   infonya = await axios.get(``)
+                   infonya = await axios.get(`https://api.open.mp/server/`)
+                   var kamunanya = `hostname ${infonya.core.hn}`
 
 
             }
