@@ -2,7 +2,7 @@ const fs = require("fs")
 const chalk = require("chalk")
 
 global.available = true
-global.autoReadGc = true
+global.autoReadGc = false
 global.autoReadAll = false
 global.antitags = true
 
@@ -10,9 +10,9 @@ global.antitags = true
 //global.autoTyping = false //auto tying in gc (true to on, false to off)
 //global.autoRecord = true //auto recording (true to on, false to off)
 
-global.Owner = ['916297175943','919362639362']  //If you want singal number so global.Owner = ['916297175943'] Change into your number
-global.OwnerNumber = ['916297175943','919362639362']  //If you want singal number so global.Owner = ['916297175943'] Change into your number
-global.ownertag = ['916297175943']
+global.Owner = ['6287819019927']  //If you want singal number so global.Owner = ['916297175943'] Change into your number
+global.OwnerNumber = ['6287819019927']  //If you want singal number so global.Owner = ['916297175943'] Change into your number
+global.ownertag = ['287819019927']
 global.BotName = "A17"
 global.packname = "A17 bot"
 global.author = "By: Kai"
@@ -23,7 +23,7 @@ global.sessionName = "session"
 
 // Prefix //
 // If you want to change the prefix, change it and also change all switch's button id from Core.js  otherwise buttons will not work //
-global.prefa = ['-'] 
+global.prefa = ['.'] 
 
 
 global.location = "West Bengal, India"

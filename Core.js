@@ -15,17 +15,21 @@ const {
   getContentType,
   WAFlag,
 } = require("@adiwajshing/baileys");
-const zA17 = require("@adiwajshing/baileys");
 const fs = require("fs");
 const util = require("util");
 const chalk = require("chalk");
-const { exec, spawn, execSync } = require("child_process");
+const { exec } = require("child_process");
 const axios = require("axios");
 const {
   Sticker,
   createSticker,
   StickerTypes,
 } = require("wa-sticker-formatter");
+let {
+  UploadFileUgu,
+  webp2mp4File,
+  TelegraPh,
+} = require("./lib/uploader");
 const path = require("path");
 const os = require("os");
 const { AnimeWallpaper } = require("anime-wallpaper");
@@ -45,6 +49,7 @@ const { performance } = require("perf_hooks");
 const { Primbon } = require("scrape-primbon");
 const { EmojiAPI } = require("emoji-api");
 const imgbbUploader = require("imgbb-uploader");
+const { JadiAnime } = require('jadianime-ts')
 const primbon = new Primbon();
 const {
   isLimit,
@@ -82,7 +87,7 @@ const { aiovideodl } = require("./lib/scraper.js");
 const cheerio = require("cheerio");
 const eco = require("discord-mongoose-economy");
 const ty = eco.connect(
-  "mongodb+srv://Arch:1t6l2G0r6nagLlOb@cluster0.gedh4.mongodb.net/?retryWrites=true&w=majority"
+  "mongodb+srv://Trito:ngeteh@cluster0.hbamkhp.mongodb.net/?retryWrites=true&w=majority"
 );
 const textpro = require("./lib/textpro");
 const { detikNews } = require("./lib/detik");
@@ -348,6 +353,8 @@ module.exports = A17 = async (A17, m, chatUpdate, store) => {
       m.mtype === "extendedTextMessage" && content.includes("audioMessage");
 
     const mongoose = require("mongoose");
+
+
 
     /* Dm and Groups Autoreply/Bot chat
 
@@ -2119,6 +2126,33 @@ ${themeemoji} MessageType : ${m.mtype}`;
         }
         break;
 
+        case "toanime":
+        case "jadianime":
+          if (!mime) return reply(`reply photonya untuk `)
+          if (isBan) return reply(mess.banned)
+          if (isBanChat) return reply(mess.bangc)
+          let media = await A17.downloadAndSaveMediaMessage(quoted);
+          let udhupload = await TelegraPh(media)
+          linknya = `https://api.caliph.biz.id/api/animeai?img=${udhupload}&apikey=caliphkey`
+            A17.sendMessage(m.chat, { image: { url: linknya} , caption: "nih sudah jadi" }, { quoted: m });
+          break;
+
+        
+        case "sauce":
+        case "anime-apa":
+          if (!mime) return reply('gambarnya mana?')
+          if (isBan) return reply(mess.banned)
+          if (isBanChat) return reply(mess.bangc)
+          let ko = await A17.downloadAndSaveMediaMessage(quoted)
+          let traceDetails = await axios(`https://api.trace.moe/search?url=${encodeURIComponent(ko)}`)
+
+
+
+          break;
+
+
+
+
       case "me":
       case "profile":
         if (isBan) return reply(mess.banned);
@@ -2504,9 +2538,9 @@ ${themeemoji} MessageType : ${m.mtype}`;
         break;
 
       case "samp":
-        var commandya = text.trim().spilt(" ");
+        var commandya = text;
         var argument = commandya[1];
-        var ngeteh = commandya[0].toLowerCase();
+        var ngeteh = commandya.toLowerCase();
         if (isBan) return reply(mess.banned);
         if (isBanChat) return reply(mess.bangc);
         if (!m.isGroup) return reply(mess.grouponly);
@@ -2518,8 +2552,9 @@ ${themeemoji} MessageType : ${m.mtype}`;
                 if(argument == "") {
                     replay(`contoh pengunaan .samp info 52.139.173.53:7777`)
                 } else {
-                   infonya = await axios.get(`https://api.open.mp/server/`)
+                   infonya = await axios.get(`https://api.open.mp/server/${argument}`)
                    var kamunanya = `hostname ${infonya.core.hn}`
+                   reply(kamunanya)
 
 
             }
@@ -5109,7 +5144,7 @@ case 'delete': case 'del': {
       case "toimg":
         {
           if (isBan) return reply(mess.banned);
-          if (isBanChat) return reply(mess.bangc);
+          if (isBanChat) return reply(mess.bangc);sticker
           A17.sendMessage(from, { react: { text: "🪄", key: m.key } });
           if (!m.quoted) return reply("Reply Image");
           if (!/webp/.test(mime))
@@ -5496,7 +5531,7 @@ case 'delete': case 'del': {
           let anu = await maker.textpro(link, q);
           A17.sendMessage(
             m.chat,
-            { image: { url: anu }, caption: `Made by A17 Bot By Kai...  🪄` },
+            { image: { url: anu }, caption: `Made by A17 Bot By Trito...  🪄` },
             { quoted: m }
           );
         }
@@ -6387,7 +6422,7 @@ _Click the button below to download_`;
           if (isBanChat) return reply(mess.bangc);
           A17.sendMessage(from, { react: { text: "🫡", key: m.key } });
 
-          if (!args.join(" ")) return reply(`Use command: -steal A17|By: Kai`);
+          if (!args.join(" ")) return reply(`Use command: -steal A17|By: Trito`);
           const swn = args.join(" ");
           const pcknm = swn.split("|")[0];
           const atnm = swn.split("|")[1];
@@ -6584,7 +6619,7 @@ Ohh i see 👀💖...`;
         if (isBanChat) return reply(mess.bangc);
         A17.sendMessage(from, { react: { text: "😺", key: m.key } });
         if (!text)
-          return replay(`Tag Someone, Example : ${prefix + command} @Kai`);
+          return replay(`Tag Someone, Example : ${prefix + command} @Trito`);
         const gan = [
           "1",
           "2",
@@ -6698,7 +6733,7 @@ Ohh i see 👀💖...`;
         if (isBan) return reply(mess.banned);
         if (isBanChat) return reply(mess.bangc);
         if (!text)
-          return replay(`Tag Someone, Example : ${prefix + command} @Kai`);
+          return replay(`Tag Someone, Example : ${prefix + command} @Trito`);
         const can = [
           "1",
           "2",
@@ -6823,7 +6858,7 @@ Ohh i see 👀💖...`;
         A17.sendMessage(from, { react: { text: "😺", key: m.key } });
 
         if (!text)
-          return replay(`Tag Someone, Example : ${prefix + command} @Kai`);
+          return replay(`Tag Someone, Example : ${prefix + command} @Trito`);
         const sangeh = [
           "1",
           "2",
@@ -6940,7 +6975,7 @@ Ohh i see 👀💖...`;
         A17.sendMessage(from, { react: { text: "🤧", key: m.key } });
 
         if (!text)
-          return replay(`Tag Someone, Example : ${prefix + command} @Kai`);
+          return replay(`Tag Someone, Example : ${prefix + command} @Trito`);
         const A17tttt = [
           "Compassionate",
           "Generous",
@@ -7039,7 +7074,7 @@ Ohh i see 👀💖...`;
           "shout you bastard in front of your mom/papa",
           "change the name to i am idiot for 24 hours",
           "slap urself firmly and send the sound of slap through voice note😂",
-          "say i love the bot owner Kai through voice note",
+          "say i love the bot owner Trito through voice note",
           "send your gf/bf pic here",
           "make any tiktok dance challenge video and put it on status, u can delete it after 5hrs",
           "breakup with your best friend for 5hrs without telling him/her that its a dare",
@@ -7138,7 +7173,7 @@ Ohh i see 👀💖...`;
           "Mention the incident that makes you hurt that you still remember",
           "what achievements have you got this year?",
           "what was your worst habit at school?",
-          "do you love the bot creator Kai?",
+          "do you love the bot creator ?",
           "have you ever thought of taking revenge from ur teacher?",
           "do you like current prime minister of ur country",
           "you non veg or veg",
@@ -8364,7 +8399,7 @@ break
           const helpmenu = `Hemlo *${pushname}* Dear...!! ${ucapanWaktu} ,
 
 │───────────────────────│
-┠⬡│▸ ${pushname} I am *A17*, a Bot Developed by *Kai*.
+┠⬡│▸ ${pushname} I am *A17*, a Bot Developed by *Trito*.
 │───────────────────────│
 │╭────────────────···▸
 ┠─────═[ *TODAY* ]═────
@@ -8470,7 +8505,7 @@ break
 ┠━━〈 🛠️ *Convert* 🛠️ 〉━━
 │╭───────────────···▸
 ┴│▸
-⬡│▸ sticker, toimg, tovideo
+⬡│▸ sticker, toimg, tovideo, toanime
 ⬡│▸ togif, steal, stickermeme
 ⬡│▸ emojimix, tourl, tomp3, toaudio
 ┬│▸
