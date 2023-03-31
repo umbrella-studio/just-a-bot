@@ -2558,7 +2558,6 @@ ${themeemoji} MessageType : ${m.mtype}`;
       case "samp":
         if (isBan) return reply(mess.banned);
         if (isBanChat) return reply(mess.bangc);
-        if (!m.isGroup) return reply(mess.grouponly);
         if (text === "") return reply("ipnya mana");
         let dibelah = text.split(":");
         const query = require("samp-query");
@@ -8595,7 +8594,7 @@ break
 ┴│▸
 ⬡│▸ animequote, quote, weather
 ⬡│▸ covid, earthquake, wiki
-⬡│▸ stalknumber / nowa
+⬡│▸ stalknumber / nowa, samp
 ┬│▸
 ╰────────────────···▸
 ━━〈 🪁 *Essentials* 🪁 〉━━
