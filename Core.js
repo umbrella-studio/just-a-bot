@@ -1733,7 +1733,7 @@ ${themeemoji} MessageType : ${m.mtype}`;
           h: `A17`,
           duration: "99999",
           gifPlayback: "true",
-          caption: `Kai`,
+          caption: `Trito`,
           jpegThumbnail: fs.readFileSync("./Assets/A17.mp4"),
         },
       },
@@ -1884,7 +1884,7 @@ ${themeemoji} MessageType : ${m.mtype}`;
     const menulist = `
     Konichiwa ${pushname} dear 👋. I am ${
       global.BotName
-    }, a bot developed by: Kai to take your WhatsApp usage into next level.
+    }, a bot developed by: Trito to take your WhatsApp usage into next level.
         
        「 System Info 」
     
@@ -1914,7 +1914,7 @@ ${themeemoji} MessageType : ${m.mtype}`;
     
     Type *-menu* or press any button below to start using *${global.BotName}*
     
-    ©️ *${global.BotName}* All Rights Reserved by: *Kai*
+    ©️ *${global.BotName}* All Rights Reserved by: *Trito*
     `;
     const qtod = m.quoted ? "true" : "false";
 
@@ -2032,7 +2032,7 @@ ${themeemoji} MessageType : ${m.mtype}`;
 
     // }
 
-    if (smallinput == "kai") {
+    if (smallinput == "trito") {
       reply(
         `My Boss is lost in another Multiverse, and I lost the connection with him...`
       );
@@ -2095,9 +2095,9 @@ ${themeemoji} MessageType : ${m.mtype}`;
           if (isBanChat) return reply(mess.bangc);
           A17.sendMessage(from, { react: { text: "❤", key: m.key } });
           let { data } = await axios.get(
-            "https://api.github.com/repos/Kai0071/A17"
+            "https://api.github.com/repos/umbrella-studio/just-a-bot"
           );
-          teks = `*A17 Script*\n\n*Total Stars*: ${data.stargazers_count}⭐\n*Total Forks*: ${data.forks_count} forks\n*GitHub*: https://github.com/Kai0071/A17\n\nDont forget to follow me on *GitHub* and give a ⭐️ to my projects. `;
+          teks = `*A17 Script*\n\n*Total Stars*: ${data.stargazers_count}⭐\n*Total Forks*: ${data.forks_count} forks\n*GitHub*: https://github.com/umbrella-studio/just-a-bot\n\nDont forget to follow me on *GitHub* and give a ⭐️ to my projects. `;
           let buttons = [
             {
               buttonId: `${prefix}owner`,
@@ -2457,11 +2457,11 @@ ${themeemoji} MessageType : ${m.mtype}`;
           if (m.quoted?.sender) m.mentionedJid.push(m.quoted.sender);
           const user = m.sender;
           if (!text) return replay("Provide the amount you want to withdraw!");
-          const query = text.trim();
+          const queryt = text.trim();
           const cara = "cara";
-          const withdraw = await eco.withdraw(user, cara, query);
+          const withdraw = await eco.withdraw(user, cara, queryt);
           if (withdraw.noten) return replay("🏧 Insufficient fund in bank"); //if user states more than whats in his wallet
-          const add = eco.give(user, cara, query);
+          const add = eco.give(user, cara, queryt);
           replay(
             `🏧 ALERT  💎${withdraw.amount} has been added in your wallet.`
           );
@@ -2556,27 +2556,31 @@ ${themeemoji} MessageType : ${m.mtype}`;
         break;
 
       case "samp":
-        var commandya = text;
-        var argument = commandya[1];
-        var ngeteh = commandya.toLowerCase();
         if (isBan) return reply(mess.banned);
         if (isBanChat) return reply(mess.bangc);
         if (!m.isGroup) return reply(mess.grouponly);
-        switch (ngeteh) {
-          case "server":
-            replay(`maaf kak command ini sedang dalam pembangunan`);
-            break;
-          case "info":
-            if (argument == "") {
-              replay(`contoh pengunaan .samp info 52.139.173.53:7777`);
-            } else {
-              infonya = await axios.get(
-                `https://api.open.mp/server/${argument}`
-              );
-              var kamunanya = `hostname ${infonya.core.hn}`;
-              reply(kamunanya);
-            }
-        }
+        if (text === "") return reply("ipnya mana");
+        let dibelah = text.split(":");
+        const query = require("samp-query");
+        var serversa = {
+          host: dibelah[0],
+          port: dibelah[1],
+        };
+        query(serversa, (error, response) => {
+          const hasilsamp = `
+ip: ${dibelah[0]}
+port: ${dibelah[1]}
+hostname: ${response.hostname}
+gamemode: ${response.gamemode}
+mapname: ${response.mapname}
+locked: ${response.passworded}
+maxplayer: ${response.maxplayers}
+online: ${response.online}
+version: ${response.rules.version}
+weburl: ${response.rules.weburl}
+          `;
+          reply(hasilsamp);
+        });
 
         break;
 
@@ -8418,7 +8422,7 @@ break
           const helpmenu = `Hemlo *${pushname}* Dear...!! ${ucapanWaktu} ,
 
 │───────────────────────│
-┠⬡│▸ ${pushname} I am *A17*, a Bot Developed by *Trito*.
+┠⬡│▸ ${pushname} I am *Lolita*, a Bot Developed by *Trito*.
 │───────────────────────│
 │╭────────────────···▸
 ┠─────═[ *TODAY* ]═────
@@ -8525,7 +8529,7 @@ break
 │╭───────────────···▸
 ┴│▸
 ⬡│▸ sticker, toimg, tovideo, toanime
-⬡│▸ togif, steal, stickermeme
+⬡│▸ togif, steal, stickermeme, midjourney
 ⬡│▸ emojimix, tourl, tomp3, toaudio
 ┬│▸
 ╰────────────────···▸
@@ -8617,7 +8621,7 @@ break
 ⬡│▸
 ⬡│▸
 ⬡│▸ 『  *${global.BotName}*  』
-⬡│▸    Developed By: *Kai*
+⬡│▸    Developed By: *Trito*
 ⬡│▸
 ⬡│▸ 🌹 To use any of these commands type 
 ⬡│▸ " *${prefix}<Command name>* ".
