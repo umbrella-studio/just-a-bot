@@ -25,11 +25,7 @@ const {
   createSticker,
   StickerTypes,
 } = require("wa-sticker-formatter");
-let {
-  UploadFileUgu,
-  webp2mp4File,
-  TelegraPh,
-} = require("./lib/uploader");
+let { UploadFileUgu, webp2mp4File, TelegraPh } = require("./lib/uploader");
 const path = require("path");
 const os = require("os");
 const { AnimeWallpaper } = require("anime-wallpaper");
@@ -49,7 +45,7 @@ const { performance } = require("perf_hooks");
 const { Primbon } = require("scrape-primbon");
 const { EmojiAPI } = require("emoji-api");
 const imgbbUploader = require("imgbb-uploader");
-const { JadiAnime } = require('jadianime-ts')
+const { JadiAnime } = require("jadianime-ts");
 const primbon = new Primbon();
 const {
   isLimit,
@@ -105,6 +101,11 @@ const { mediafireDl } = require("./lib/mediafire.js");
 const kaitime = moment.tz("Asia/Kolkata").format("HH:mm:ss");
 const kaidate = moment.tz("Asia/Kolkata").format("DD/MM/YYYY");
 const time2 = moment().tz("Asia/Kolkata").format("HH:mm:ss");
+const Replicate = require("replicate");
+
+const replicate = new Replicate({
+  auth: "ff65ece45cb3407b6e849272db3b0d2efce3e3c1",
+});
 
 if (time2 < "23:59:00") {
   var ucapanWaktu = "Good night 🌌";
@@ -353,8 +354,6 @@ module.exports = A17 = async (A17, m, chatUpdate, store) => {
       m.mtype === "extendedTextMessage" && content.includes("audioMessage");
 
     const mongoose = require("mongoose");
-
-
 
     /* Dm and Groups Autoreply/Bot chat
 
@@ -2126,32 +2125,51 @@ ${themeemoji} MessageType : ${m.mtype}`;
         }
         break;
 
-        case "toanime":
-        case "jadianime":
-          if (!mime) return reply(`reply photonya untuk `)
-          if (isBan) return reply(mess.banned)
-          if (isBanChat) return reply(mess.bangc)
-          let media = await A17.downloadAndSaveMediaMessage(quoted);
-          let udhupload = await TelegraPh(media)
-          linknya = `https://api.caliph.biz.id/api/animeai?img=${udhupload}&apikey=caliphkey`
-            A17.sendMessage(m.chat, { image: { url: linknya} , caption: "nih sudah jadi" }, { quoted: m });
-          break;
+      case "toanime":
+      case "jadianime":
+        if (!mime) return reply(`reply photonya untuk `);
+        if (isBan) return reply(mess.banned);
+        if (isBanChat) return reply(mess.bangc);
+        let media = await A17.downloadAndSaveMediaMessage(quoted);
+        let udhupload = await TelegraPh(media);
+        linknya = `https://api.caliph.biz.id/api/animeai?img=${udhupload}&apikey=caliphkey`;
+        A17.sendMessage(
+          m.chat,
+          { image: { url: linknya }, caption: "nih sudah jadi" },
+          { quoted: m }
+        );
+        break;
 
-        
-        case "sauce":
-        case "anime-apa":
-          if (!mime) return reply('gambarnya mana?')
-          if (isBan) return reply(mess.banned)
-          if (isBanChat) return reply(mess.bangc)
-          let ko = await A17.downloadAndSaveMediaMessage(quoted)
-          let traceDetails = await axios(`https://api.trace.moe/search?url=${encodeURIComponent(ko)}`)
+      case "sauce":
+      case "anime-apa":
+        if (!mime) return reply("gambarnya mana?");
+        if (isBan) return reply(mess.banned);
+        if (isBanChat) return reply(mess.bangc);
+        let ko = await A17.downloadAndSaveMediaMessage(quoted);
+        let traceDetails = await axios(
+          `https://api.trace.moe/search?url=${encodeURIComponent(ko)}`
+        );
 
+        break;
 
-
-          break;
-
-
-
+      case "midjourney":
+        if (!text) return reply("textnya mana");
+        if (isBan) return reply(mess.banned);
+        if (isBanChat) return reply(mess.bangc);
+        const midout = await replicate.run(
+          "prompthero/openjourney:9936c2001faa2194a261c01381f90e65261879985476014a0a37a334593a05eb",
+          {
+            input: {
+              prompt: "mdjrny-v4 style portrait of" + text,
+            },
+          }
+        );
+        A17.sendMessage(
+          m.chat,
+          { image: { url: midout }, caption: "nih udh jadi" },
+          { quoted: m }
+        );
+        break;
 
       case "me":
       case "profile":
@@ -2545,20 +2563,19 @@ ${themeemoji} MessageType : ${m.mtype}`;
         if (isBanChat) return reply(mess.bangc);
         if (!m.isGroup) return reply(mess.grouponly);
         switch (ngeteh) {
-            case "server":
-              replay(`maaf kak command ini sedang dalam pembangunan`)
-              break;
-            case "info":
-                if(argument == "") {
-                    replay(`contoh pengunaan .samp info 52.139.173.53:7777`)
-                } else {
-                   infonya = await axios.get(`https://api.open.mp/server/${argument}`)
-                   var kamunanya = `hostname ${infonya.core.hn}`
-                   reply(kamunanya)
-
-
+          case "server":
+            replay(`maaf kak command ini sedang dalam pembangunan`);
+            break;
+          case "info":
+            if (argument == "") {
+              replay(`contoh pengunaan .samp info 52.139.173.53:7777`);
+            } else {
+              infonya = await axios.get(
+                `https://api.open.mp/server/${argument}`
+              );
+              var kamunanya = `hostname ${infonya.core.hn}`;
+              reply(kamunanya);
             }
-                
         }
 
         break;
@@ -5144,7 +5161,8 @@ case 'delete': case 'del': {
       case "toimg":
         {
           if (isBan) return reply(mess.banned);
-          if (isBanChat) return reply(mess.bangc);sticker
+          if (isBanChat) return reply(mess.bangc);
+          sticker;
           A17.sendMessage(from, { react: { text: "🪄", key: m.key } });
           if (!m.quoted) return reply("Reply Image");
           if (!/webp/.test(mime))
@@ -6422,7 +6440,8 @@ _Click the button below to download_`;
           if (isBanChat) return reply(mess.bangc);
           A17.sendMessage(from, { react: { text: "🫡", key: m.key } });
 
-          if (!args.join(" ")) return reply(`Use command: -steal A17|By: Trito`);
+          if (!args.join(" "))
+            return reply(`Use command: -steal A17|By: Trito`);
           const swn = args.join(" ");
           const pcknm = swn.split("|")[0];
           const atnm = swn.split("|")[1];
