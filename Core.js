@@ -20,11 +20,6 @@ const util = require("util");
 const chalk = require("chalk");
 const { exec } = require("child_process");
 const axios = require("axios");
-const {
-  Sticker,
-  createSticker,
-  StickerTypes,
-} = require("wa-sticker-formatter");
 let { UploadFileUgu, webp2mp4File, TelegraPh } = require("./lib/uploader");
 const path = require("path");
 const os = require("os");
@@ -6208,7 +6203,7 @@ _Click the button below to download_`;
               { text: "Pls enter song name to play!" },
               { quoted: m }
             );
-          let yts = require("youtube-yts"))
+          let yts = require("youtube-yts")
           let search = await yts(text);
           let anu = search.videos[0];
           let buttons = [
@@ -6251,6 +6246,7 @@ _Click the button below to download_`;
           if (isBan) return reply(mess.banned);
           if (isBanChat) return reply(mess.bangc);
           let yts = require("youtube-yts")
+          const YT = require("./lib/ytdlcore")
           let search = await yts(text);
           let anu = search.videos[0];
           const ytmp3play = await YT.mp3(anu.url);
