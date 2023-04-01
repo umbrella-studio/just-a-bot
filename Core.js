@@ -4453,7 +4453,7 @@ case 'delete': case 'del': {
           if (isBan) return reply(mess.banned);
           if (isBanChat) return reply(mess.bangc);
           if (!args.join(" ")) return replay(`Example : -yts Heat waves`);
-          let yts = require("@adiwajshing/keyed-db2");
+          let yts = require("youtube-yts");
           let search = await yts(args.join(" "));
           let teks =
             "```「 YouTube search Engine 」```\n\n Search Term: " +
@@ -6199,7 +6199,7 @@ _Click the button below to download_`;
           if (isBan) return reply(mess.banned);
           if (isBanChat) return reply(mess.bangc);
           A17.sendMessage(from, { react: { text: "🍁", key: m.key } });
-          const YT = require("./lib/ytdlcore");
+          let search = await yts(text)
           const { isUrl, fetchBuffer } = require("./lib/Function");
 
           if (!text)
@@ -6208,7 +6208,7 @@ _Click the button below to download_`;
               { text: "Pls enter song name to play!" },
               { quoted: m }
             );
-          let yts = require("@adiwajshing/keyed-db2");
+          let yts = require("youtube-yts"))
           let search = await yts(text);
           let anu = search.videos[0];
           let buttons = [
@@ -6250,8 +6250,7 @@ _Click the button below to download_`;
         {
           if (isBan) return reply(mess.banned);
           if (isBanChat) return reply(mess.bangc);
-          const YT = require("./lib/ytdlcore");
-          let yts = require("@adiwajshing/keyed-db2");
+          let yts = require("youtube-yts")
           let search = await yts(text);
           let anu = search.videos[0];
           const ytmp3play = await YT.mp3(anu.url);
@@ -6272,7 +6271,7 @@ _Click the button below to download_`;
           if (isBan) return reply(mess.banned);
           if (isBanChat) return reply(mess.bangc);
           const YT = require("./lib/ytdlcore");
-          let yts = require("@adiwajshing/keyed-db2");
+          let yts = require("youtube-yts")
           let search = await yts(text);
           let anu = search.videos[0];
           const ytmp4play = await YT.mp4(anu.url);
@@ -6289,7 +6288,7 @@ _Click the button below to download_`;
         break;
       case "ytmp3":
       case "ytmusic":
-      case "ytmp4":
+      case "ytmp4":ytdlc
       case "ytvideo":
       case "ytdl":
         {
@@ -6304,7 +6303,7 @@ _Click the button below to download_`;
               { text: "Please provide a valid youtube link!" },
               { quoted: m }
             );
-          let yts = require("@adiwajshing/keyed-db2");
+          let yts = require("youtube-yts");
           let search = await yts(text);
           let anu = search.videos[0];
           let buttons = [
