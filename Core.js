@@ -3480,7 +3480,8 @@ case 'delete': case 'del': {
           if (isBan) return reply(mess.banned);
           if (isBanChat) return reply(mess.bangc);
           if (!isBotAdmins) return replay(mess.botadmin);
-          if (!isAdmins && !isCreator) return replay(mess.useradmin);
+          if (!isCreator) return replay(mess.useradmiisCreatorn)
+          if (!isAdmins) return replay(mess.useradmiisCreatorn);
           if (!m.quoted) return reply("Please mention a message baka!");
           let { chat, fromMe, id } = m.quoted;
 
@@ -3703,7 +3704,7 @@ case 'delete': case 'del': {
         if (isBan) return reply(mess.banned);
         if (isBanChat) return reply(mess.bangc);
         if (!m.isGroup) return replay(mess.grouponly);
-        if (!isAdmins && !isCreator) return reply(mess.useradmin);
+        if (!isAdmins) return reply(mess.useradmin);
         if (args.length < 1)
           return reply("Type on to *Enable*\nType off to *Disable*");
         if (args[0] === "on") {
@@ -3731,7 +3732,8 @@ case 'delete': case 'del': {
           if (isBanChat) return reply(mess.bangc);
           if (!m.isGroup) return replay(mess.grouponly);
           if (!isBotAdmins) return replay(mess.botadmin);
-          if (!isAdmins && !isCreator) return replay(mess.useradmin);
+          if (!isCreator) return replay(mess.useradmin)
+          if (!isAdmins) return replay(mess.useradmin);
           if (args[0] === "on") {
             if (AntiLink) return replay("Already activated");
             ntilink.push(from);
@@ -3787,7 +3789,7 @@ case 'delete': case 'del': {
           if (isBanChat) return reply(mess.bangc);
           if (!m.isGroup) return replay(mess.grouponly);
           if (!isBotAdmins) return replay(mess.botadmin);
-          if (!isAdmins && !isCreator) return replay(mess.useradmin);
+          if (!isAdmins) return replay(mess.useradmin);
           if (args[0] === "on") {
             if (AntiLinkYoutubeVid) return replay("Already activated");
             ntilinkytvid.push(from);
@@ -3843,7 +3845,7 @@ case 'delete': case 'del': {
           if (isBanChat) return reply(mess.bangc);
           if (!m.isGroup) return replay(mess.grouponly);
           if (!isBotAdmins) return replay(mess.botadmin);
-          if (!isAdmins && !isCreator) return replay(mess.useradmin);
+          if (!isAdmins) return replay(mess.useradmin);
           if (args[0] === "on") {
             if (AntiLinkYoutubeChannel) return replay("Already activated");
             ntilinkytch.push(from);
@@ -3899,7 +3901,7 @@ case 'delete': case 'del': {
           if (isBanChat) return reply(mess.bangc);
           if (!m.isGroup) return replay(mess.grouponly);
           if (!isBotAdmins) return replay(mess.botadmin);
-          if (!isAdmins && !isCreator) return replay(mess.useradmin);
+          if (!isAdmins) return replay(mess.useradmin);
           if (args[0] === "on") {
             if (AntiLinkInstagram) return replay("Already activated");
             ntilinkig.push(from);
@@ -3954,7 +3956,7 @@ case 'delete': case 'del': {
           if (isBanChat) return reply(mess.bangc);
           if (!m.isGroup) return replay(mess.grouponly);
           if (!isBotAdmins) return replay(mess.botadmin);
-          if (!isAdmins && !isCreator) return replay(mess.useradmin);
+          if (!isAdmins) return replay(mess.useradmin);
           if (args[0] === "on") {
             if (AntiLinkFacebook) return replay("Already activated");
             ntilinkfb.push(from);
@@ -4009,7 +4011,7 @@ case 'delete': case 'del': {
           if (isBanChat) return reply(mess.bangc);
           if (!m.isGroup) return replay(mess.grouponly);
           if (!isBotAdmins) return replay(mess.botadmin);
-          if (!isAdmins && !isCreator) return replay(mess.useradmin);
+          if (!isAdmins) return replay(mess.useradmin);
           if (args[0] === "on") {
             if (AntiLinkTelegram) return replay("Already activated");
             ntilinktg.push(from);
@@ -4064,7 +4066,7 @@ case 'delete': case 'del': {
           if (isBanChat) return reply(mess.bangc);
           if (!m.isGroup) return replay(mess.grouponly);
           if (!isBotAdmins) return replay(mess.botadmin);
-          if (!isAdmins && !isCreator) return replay(mess.useradmin);
+          if (!isAdmins) return replay(mess.useradmin);
           if (args[0] === "on") {
             if (AntiLinkTiktok) return replay("Already activated");
             ntilinktt.push(from);
@@ -4120,7 +4122,7 @@ case 'delete': case 'del': {
           if (isBanChat) return reply(mess.bangc);
           if (!m.isGroup) return replay(mess.grouponly);
           if (!isBotAdmins) return replay(mess.botadmin);
-          if (!isAdmins && !isCreator) return replay(mess.useradmin);
+          if (!isAdmins) return replay(mess.useradmin);
           if (args[0] === "on") {
             if (AntiLinkTwitter) return replay("Already activated");
             ntilinktwt.push(from);
@@ -4174,7 +4176,7 @@ case 'delete': case 'del': {
           if (isBanChat) return reply(mess.bangc);
           if (!m.isGroup) return replay(mess.grouponly);
           if (!isBotAdmins) return replay(mess.botadmin);
-          if (!isAdmins && !isCreator) return replay(mess.useradmin);
+          if (!isAdmins) return replay(mess.useradmin);
           if (args[0] === "on") {
             if (AntiLinkTwitter) return replay("Already activated");
             ntilinkall.push(from);
@@ -4228,7 +4230,7 @@ case 'delete': case 'del': {
           if (isBanChat) return reply(mess.bangc);
           if (!m.isGroup) return replay(mess.grouponly);
           if (!isBotAdmins) return replay(mess.botadmin);
-          if (!isAdmins && !isCreator) return replay(mess.useradmin);
+          if (!isAdmins) return replay(mess.useradmin);
           if (args[0] === "on") {
             if (antiWame) return replay("Already activated");
             ntwame.push(from);
@@ -4282,7 +4284,7 @@ case 'delete': case 'del': {
           if (isBanChat) return reply(mess.bangc);
           if (!m.isGroup) return replay(mess.grouponly);
           if (!isBotAdmins) return replay(mess.botadmin);
-          if (!isAdmins && !isCreator) return replay(mess.useradmin);
+          if (!isAdmins) return replay(mess.useradmin);
           if (args[0] === "on") {
             if (AntiNsfw) return replay("Already activated");
             ntnsfw.push(from);
@@ -4479,7 +4481,7 @@ case 'delete': case 'del': {
           if (isBanChat) return reply(mess.bangc);
           if (!m.isGroup) return replay(mess.grouponly);
           if (!isBotAdmins) return replay(mess.botadmin);
-          if (!isAdmins && !isCreator) return replay(mess.useradmin);
+          if (!isAdmins) return replay(mess.useradmin);
           if (!text)
             return replay(
               "Pls enter -setname <New Group Name>  to change this Group Name"
@@ -4529,7 +4531,7 @@ case 'delete': case 'del': {
           if (isBanChat) return reply(mess.bangc);
           if (!m.isGroup) return replay(mess.grouponly);
           if (!isBotAdmins) return replay(mess.botadmin);
-          if (!isAdmins && !isCreator) return replay(mess.useradmin);
+          if (!isAdmins) return replay(mess.useradmin);
           if (!text)
             return replay(
               "Pls enter -setname <New Group Description>  to change this Group Description."
@@ -4548,7 +4550,7 @@ case 'delete': case 'del': {
           if (isBanChat) return reply(mess.bangc);
           if (!m.isGroup) return replay(mess.grouponly);
           if (!isBotAdmins) return replay(mess.botadmin);
-          if (!isAdmins && !isCreator) return replay(mess.useradmin);
+          if (!isAdmins) return replay(mess.useradmin);
           if (!quoted)
             return replay(`Send/Reply Image With Caption ${prefix + command}`);
           if (!/image/.test(mime))
@@ -4578,7 +4580,7 @@ case 'delete': case 'del': {
           if (isBan) return reply(mess.banned);
           if (isBanChat) return reply(mess.bangc);
           if (!m.isGroup) return replay(mess.grouponly);
-          if (!isAdmins && !isCreator) return replay(mess.useradmin);
+          if (!isAdmins) return replay(mess.useradmin);
           A17.sendMessage(from, { react: { text: "😳", key: m.key } });
           let teks = `「 Attention 」
   
@@ -4600,7 +4602,7 @@ case 'delete': case 'del': {
           if (isBan) return reply(mess.banned);
           if (isBanChat) return reply(mess.bangc);
           if (!m.isGroup) return replay(mess.grouponly);
-          if (!isAdmins && !isCreator) return replay(mess.useradmin);
+          if (!isAdmins) return replay(mess.useradmin);
           A17.sendMessage(from, { react: { text: "✨", key: m.key } });
           A17.sendMessage(
             m.chat,
@@ -4645,7 +4647,7 @@ case 'delete': case 'del': {
      if (isBanChat) return reply(mess.bangc)
      if (!m.isGroup) return replay(mess.grouponly)
      if (!isBotAdmins) return replay(mess.botadmin)
-     if (!isAdmins && !isCreator) return replay(mess.useradmin)
+     if (!isAdmins) return replay(mess.useradmin)
 
         const delay = time => new Promise(res=>setTimeout(res,time));
 
@@ -4667,7 +4669,7 @@ case 'delete': case 'del': {
           if (isBanChat) return reply(mess.bangc);
           if (!m.isGroup) return replay(mess.grouponly);
           if (!isBotAdmins) return replay(mess.botadmin);
-          if (!isAdmins && !isCreator) return replay(mess.useradmin);
+          if (!isAdmins) return replay(mess.useradmin);
           const delay = (time) => new Promise((res) => setTimeout(res, time));
           let mentioned = participants.map((v) => v.jid);
           for (let member of mentioned) {
@@ -4801,7 +4803,7 @@ case 'delete': case 'del': {
           if (isBanChat) return reply(mess.bangc);
           if (!m.isGroup) return replay(mess.grouponly);
           if (!isBotAdmins) return replay(mess.botadmin);
-          if (!isAdmins && !isCreator) return replay(mess.useradmin);
+          if (!isAdmins) return replay(mess.useradmin);
           A17.sendMessage(from, { react: { text: "🫡", key: m.key } });
           A17.groupRevokeInvite(m.chat);
         }
@@ -4814,7 +4816,7 @@ case 'delete': case 'del': {
           if (isBanChat) return reply(mess.bangc);
           if (!m.isGroup) return replay(mess.grouponly);
           if (!isBotAdmins) return replay(mess.botadmin);
-          if (!isAdmins && !isCreator) return replay(mess.useradmin);
+          if (!isAdmins) return replay(mess.useradmin);
           A17.sendMessage(from, { react: { text: "🫡", key: m.key } });
           if (args[0] === "close") {
             await A17.groupSettingUpdate(m.chat, "announcement")
@@ -4856,7 +4858,7 @@ case 'delete': case 'del': {
           if (isBanChat) return reply(mess.bangc);
           if (!m.isGroup) return replay(mess.grouponly);
           if (!isBotAdmins) return replay(mess.botadmin);
-          if (!isAdmins && !isCreator) return replay(mess.useradmin);
+          if (!isAdmins) return replay(mess.useradmin);
           A17.sendMessage(from, { react: { text: "🫡", key: m.key } });
           let users = m.mentionedJid[0]
             ? m.mentionedJid[0]
@@ -4875,7 +4877,7 @@ case 'delete': case 'del': {
           if (isBanChat) return reply(mess.bangc);
           if (!m.isGroup) return replay(mess.grouponly);
           if (!isBotAdmins) return replay(mess.botadmin);
-          if (!isAdmins && !isCreator) return replay(mess.useradmin);
+          if (!isAdmins) return replay(mess.useradmin);
           A17.sendMessage(from, { react: { text: "🫡", key: m.key } });
           let users = m.mentionedJid[0]
             ? m.mentionedJid[0]
@@ -4894,7 +4896,7 @@ case 'delete': case 'del': {
           if (isBanChat) return reply(mess.bangc);
           if (!m.isGroup) return replay(mess.grouponly);
           if (!isBotAdmins) return replay(mess.botadmin);
-          if (!isAdmins && !isCreator) return replay(mess.useradmin);
+          if (!isAdmins) return replay(mess.useradmin);
           A17.sendMessage(from, { react: { text: "🫡", key: m.key } });
           let users = m.mentionedJid[0]
             ? m.mentionedJid[0]
